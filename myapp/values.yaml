@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: 192.168.80.100:5000/network-test
+  tag: v1.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
