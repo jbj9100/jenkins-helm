@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ - include "myapp.name" . - }}
-  namespace: { { - include "myapp.namespace" . - }}
+  namespace: {{ - include "myapp.namespace" . - }}
   labels:
     app: {{ - include "myapp.name" . - }}
 spec:

@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: {{ - include "myapp.name" . - }}
   labels:
-    app: { { - include "myapp.name" . - }}
+    app: {{ - include "myapp.name" . - }}
 spec:
   type: {{ - .Values.service.type - }}
   ports:
-    - port: { { - .Values.service.port - }}
+    - port: {{ - .Values.service.port - }}
       targetPort: 80
   selector:
     app: {{ - include "myapp.name" . - }}
