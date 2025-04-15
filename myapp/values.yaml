@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 192.168.80.100:5000/network-test
-  tag: v1.0.0
+  tag: v1.0.34
   pullPolicy: IfNotPresent
 
 service:
