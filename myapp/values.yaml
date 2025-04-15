@@ -8,8 +8,15 @@ image:
 service:
   type: ClusterIP
   port: 80
+  targetPort: 80
 
-resources: {}
+resources:
+  limits:
+    cpu: "1"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
 
 nodeSelector: {}
 
