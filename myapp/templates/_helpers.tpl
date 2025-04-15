@@ -1,5 +1,5 @@
 {{- define "myapp.name" -}}
-network-test
+network-app
 {{- end }}
 
 {{- define "myapp.namespace" -}}
