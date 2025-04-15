@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{- include "myapp.name" . -}}
-  namespace: {{- include "myapp.namespace" . -}}
+  name: {{ include "myapp.name" . | quote }}
+  namespace: {{ include "myapp.namespace" . | quote }}
   labels:
-    app: {{- include "myapp.name" . -}}
+    app: {{ include "myapp.name" . | quote }}
 spec:
-  replicas: {{- .Values.replicaCount -}}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{- include "myapp.name" . -}}
+      app: {{ include "myapp.name" . | quote }}
   template:
     metadata:
       labels:
-        app: {{- include "myapp.name" . -}}
+        app: {{ include "myapp.name" . | quote }}
     spec:
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
       containers:
-        - name: {{- include "myapp.name" . -}}
-          image: "{{- .Values.image.repository -}}:{{- .Values.image.tag -}}"
-          imagePullPolicy: {{- .Values.image.pullPolicy -}}
+        - name: {{ include "myapp.name" . | quote }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
-          resources: {{- toYaml .Values.resources | nindent 12 -}}
+          resources: {{ toYaml .Values.resources | nindent 12 }}
