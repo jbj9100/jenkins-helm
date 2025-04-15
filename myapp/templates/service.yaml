@@ -5,9 +5,9 @@ metadata:
   labels:
     app: {{ include "myapp.name" . | quote }}
 spec:
-  type: {{- .Values.service.type -}}
+  type: {{ .Values.service.type }}
   ports:
-    - port: {{- .Values.service.port -}}
+    - port: {{ .Values.service.port }}
       targetPort: 80
   selector:
     app: {{ include "myapp.name" . | quote }}
